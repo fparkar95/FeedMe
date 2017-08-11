@@ -77,6 +77,13 @@ iframe {
 .green {
 	color: #5FB000;
 }
+
+#content-section{
+    background-color: white;
+    box-shadow: 4px 4px 4px rgba(50, 50, 50, 0.75);
+  width:600px;
+  height:275px;
+}
 .padding10, .padding20, .padding30, .padding010, .padding020, .padding030, .padding100, .padding200, .padding300 {
 	-webkit-box-sizing: border-box; /* webkit */
 	 -khtml-box-sizing: border-box; /* konqueror */
@@ -272,7 +279,7 @@ a.brand {
 ========================================================== */
 .box-container {
 	background: #fff;
-	position: relative;
+	text-align: left;
 	margin-bottom: 30px;
 	border-bottom: 2px solid #EAEAEA;
 }
@@ -414,6 +421,16 @@ a.overlay:hover .more {
     right: 0;
     top: -620px;
     z-index: 9999;
+}
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    text-align: center;
+    position: relative;
+    
+    
 }
 .search-form {
 	padding: 30px 30px 10px;
