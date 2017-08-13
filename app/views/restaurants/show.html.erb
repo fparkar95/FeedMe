@@ -13,14 +13,14 @@
                 <div class="clearfix">
                     <div class="clearfix padding30">
                         <h2 class="prop-title pull-left margin0"><%= @restaurant.name %></h2>
-                        <span class="prop-price pull-right serif italic">*****</span>
+                        <span class="prop-price pull-right serif italic star-rating" data-score=<%= @avg_rating %>> </span>
                     </div>
                     <div class="clearfix padding030 row-fluid">
                         <ul class="more-info pull-left span6">
                             <li class="info-label clearfix"><span class="pull-left">Cuisine:</span>
-                                <span class="qty pull-right">4</span></li>
+                                <span class="qty pull-right"><%= @restaurant.cuisine.name %></span></li>
                             <li class="info-label clearfix"><span class="pull-left">Website:</span>
-                                <span class="qty pull-right">2</span></li>
+                                <span class="qty pull-right"></span></li>
                             <li class="info-label clearfix"><span class="pull-left">Description:</span>
                                 <span class="qty pull-right"><%= @restaurant.description %></span></li>
                          
@@ -41,8 +41,38 @@
                         </ul>
                     </div>
                     <div class="clearfix padding30">
+                         <%= link_to "Write a Review", new_restaurant_review_path(@restaurant.id), class: "button; btn btn-primary btn-lgbtn3d" %>
                         <h3>Reviews</h3>
-                        <p>No reviews yet!</p>
+                        <% if @reviews.blank? %>
+                        <p><strong>No reviews yet!</strong></p>
+                        <% else %>
+                        <table class="table">
+                            <head>
+                                <tr>
+                                   <th class= "col-mid-3"</th>
+                                    <th class= "col-mid9"></th>
+                                </tr>
+                            </head>
+                            <body>
+                                <% @reviews.each do |review| %>
+                                <tr>
+                                    <td>
+                                        <h5><%= "#{review.user.first_name} #{review.user.last_name}" %></h5>
+                                        
+                                    </td>
+                                    <td>
+                                          <div class="clearfix star-rating" data-score=<%= review.rating %>> </div>
+                                          <%= review.comment %>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </body>
+                        </table>
+                        
+                         
+                        <% end %>
+                        
+                          
                     </div>
                 </div>
             </div>
@@ -59,10 +89,10 @@
                         <img alt="image" class="media-object agent-avatar" src="images/agent-01.jpg" />
                     </div>
                     <div class="pull-left">
-                        <h3>Contact Agent</h3>
+                        <h3>Contact App Creator</h3>
                         <ul>
-                            <li>John Doe</li>
-                            <li><a href="#">john.doe@realto.com</a></li>
+                            <li>Faris Parkar</li>
+                            <li><a href="#">farisparkar@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>

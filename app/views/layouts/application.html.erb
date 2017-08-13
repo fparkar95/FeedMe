@@ -26,7 +26,16 @@
 <%= yield %>
 
 <%= render 'layouts/footer' %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
+
 </body>
 </html>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
